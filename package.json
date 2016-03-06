@@ -1,10 +1,13 @@
 {
-  "name": "cors-proxy",
+  "name": "@mh-cbon/cors-proxy",
   "version": "1.0.0",
-  "description": "",
+  "description": "A proxy to handle CORS on non-compatible CORS websites",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
+  },
+  "bin": {
+    "cors-proxy": "./bin.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/mh-cbon/cors-proxy/issues"
   },
-  "homepage": "https://github.com/mh-cbon/cors-proxy#readme"
+  "homepage": "https://github.com/mh-cbon/cors-proxy#readme",
+  "dependencies": {
+    "@maboiteaspam/set-verbosity": "^2.0.3",
+    "@maboiteaspam/show-help": "^3.0.0",
+    "debug": "^2.2.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "nock": "^7.2.2"
+  }
 }

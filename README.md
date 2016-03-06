@@ -6,6 +6,12 @@ A proxy to handle CORS on non-compatible CORS websites
 
 It s early lifetime of this module, if you find an issue, report it.
 
+## Features
+
+- Preflighted requests
+- X-Forward headers
+- SSL
+
 # Usage
 
 ```

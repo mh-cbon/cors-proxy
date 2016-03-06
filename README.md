@@ -4,7 +4,7 @@ A proxy to handle CORS on non-compatible CORS websites
 
 ## notes
 
-It s early lifetime of this module, if you find an issue, report it. 
+It s early lifetime of this module, if you find an issue, report it.
 
 # Usage
 
@@ -41,7 +41,13 @@ Examples
   cors-proxy -v -q -s http://127.0.0.1:8080/
 ```
 
+## todos
+
+- Write tests for SSL handling on both proxy / proxified resources
+- real life testings
+
 ## Read more
+
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
 - http://stackoverflow.com/questions/19084340/real-life-usage-of-the-x-forwarded-host-header
 - http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/x-forwarded-headers.html

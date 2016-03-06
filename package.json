@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/mh-cbon/cors-proxy.git"
   },
-  "keywords": [],
+  "keywords": [
+    "CORS",
+    "proxy"
+  ],
   "author": "mh-cbon <mh-cbon@users.noreply.github.com>",
   "license": "MIT",
   "bugs": {

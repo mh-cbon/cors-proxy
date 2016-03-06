@@ -27,7 +27,6 @@ var corsProxy = function (options) {
     server.listen(parsedBind.port, parsedBind.hostname);
   })
 
-  var credentials = options.c || options.credentials;
   function onRequest(req, res) {
     debug('got request %s %s', req.url, req.method);
     debug('headers %j', req.headers);

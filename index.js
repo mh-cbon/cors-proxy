@@ -11,7 +11,7 @@ var corsProxy = function (options) {
 
   if (!options.source) throw 'Missing source option';
   if (!options.bind) throw 'Missing bind option';
-  debug('soptions %j', options);
+  debug('options %j', options);
   debug('server will listen at %s', options.bind);
 
   var parsedBind    = url.parse(options.bind);

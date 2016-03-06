@@ -60,6 +60,13 @@ if (argv.q || argv.quick) {
   argv.origin = argv.origin || true;
 }
 
+// check the conf seems correct, according to our knowledge,
+// http://stackoverflow.com/questions/19743396/cors-cannot-use-wildcard-in-access-control-allow-origin-when-credentials-flag-i
+if (argv.origin==='*' && argv.credentials)
+  throw 'If you want use crednetials support, ' +
+  'you must not set origin to *, ' +
+  'leave it empty';
+
 // run it!
 require('./index')(argv)
 .once('error', console.error.bind(console))

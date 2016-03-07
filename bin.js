@@ -58,6 +58,8 @@ if (argv.q || argv.quick) {
   else argv.headers = 'Authorization';
 
   argv.origin = argv.origin || true;
+
+  argv.credentials = true;
 }
 
 // check the conf seems correct, according to our knowledge,

@@ -17,6 +17,7 @@ var corsProxy = function (options) {
   var parsedBind    = url.parse(options.bind);
   var parsedSource  = url.parse(options.source);
 
+  parsedBind.host     = parsedBind.host==='*' ? null : parsedBind.host;
   parsedBind.port     = parsedBind.port ? parsedBind.port : 80;
   parsedSource.port   = parsedSource.port ? parsedSource.port : 80;
 
@@ -46,7 +47,7 @@ var corsProxy = function (options) {
       var headers = {}
       if (options.origin) {
         if (options.origin===true) {
-          headers['Access-Control-Allow-Origin'] = (req.connection.encrypted ? 'https' : 'http') + '://' + req.headers.host + '/'; // not 100% sure.
+          headers['Access-Control-Allow-Origin'] = req.headers.origin;
         } else {
           headers['Access-Control-Allow-Origin'] = options.origin;
         }
@@ -110,7 +111,7 @@ var corsProxy = function (options) {
       var headers = JSON.parse(JSON.stringify(proxifiedRes.headers));
       if (options.origin) {
         if (options.origin===true) {
-          headers['Access-Control-Allow-Origin'] = (req.connection.encrypted ? 'https' : 'http') + '://' + req.headers.host + '/'; // not 100% sure.
+          headers['Access-Control-Allow-Origin'] = req.headers.origin;
         } else {
           headers['Access-Control-Allow-Origin'] = options.origin;
         }

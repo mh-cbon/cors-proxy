@@ -18,7 +18,7 @@ describe('cors-proxy', function () {
       proxy = corsProxy({
         source: 'http://api.domain.com',
         bind: 'http://127.0.0.1:8080/',
-        origin: 'http://127.0.0.1:8090/',
+        origin: 'http://127.0.0.1:8090',
         credentials: true,
         methods: 'GET, POST',
         headers: 'X-what, X-ever',
@@ -41,7 +41,7 @@ describe('cors-proxy', function () {
     it('should respond with allow origin header', function (done) {
       http.request({ hostname: '127.0.0.1', port: 8080, method: 'OPTIONS' }, function (res) {
         expect(res.statusCode).to.be.eq(200);
-        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090/');
+        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090');
         done();
       }).end();
     });
@@ -101,9 +101,9 @@ describe('cors-proxy', function () {
 
 
     it('should respond with a value of allow origin header matching the source request', function (done) {
-      http.request({ hostname: '127.0.0.1', port: 8080, method: 'OPTIONS' }, function (res) {
+      http.request({ hostname: '127.0.0.1', port: 8080, method: 'OPTIONS', headers:{ Origin: 'http://127.0.0.1:8090'} }, function (res) {
         expect(res.statusCode).to.be.eq(200);
-        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8080/');
+        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090');
         done();
       }).end();
     });
@@ -121,7 +121,7 @@ describe('cors-proxy', function () {
       proxy = corsProxy({
         source: 'http://api.domain.com',
         bind: 'http://127.0.0.1:8080/',
-        origin: 'http://127.0.0.1:8090/',
+        origin: 'http://127.0.0.1:8090',
         credentials: true,
         methods: 'GET, POST',
         headers: 'X-what, X-ever',
@@ -155,7 +155,7 @@ describe('cors-proxy', function () {
     it('should not respond with allow origin header', function (done) {
       http.request({ hostname: '127.0.0.1', port: 8080, method: 'GET' }, function (res) {
         expect(res.statusCode).to.be.eq(200);
-        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090/');
+        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090');
         done();
       }).end();
     });
@@ -215,9 +215,9 @@ describe('cors-proxy', function () {
 
 
     it('should respond with a value of allow origin header matching the source request', function (done) {
-      http.request({ hostname: '127.0.0.1', port: 8080, method: 'GET' }, function (res) {
+      http.request({ hostname: '127.0.0.1', port: 8080, method: 'GET', headers:{ Origin: 'http://127.0.0.1:8090'} }, function (res) {
         expect(res.statusCode).to.be.eq(200);
-        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8080/');
+        expect(res.headers).to.have.property('access-control-allow-origin', 'http://127.0.0.1:8090');
         done();
       }).end();
     });

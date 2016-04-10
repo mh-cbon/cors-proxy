@@ -1,6 +1,6 @@
 {
   "name": "@mh-cbon/cors-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A proxy to handle CORS on non-compatible CORS websites",
   "main": "index.js",
   "scripts": {
